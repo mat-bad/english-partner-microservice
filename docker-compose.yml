@@ -1,0 +1,10 @@
+services:
+  partner_finder_api:
+    container_name: partner_finder_api
+    build: .
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    ports:
+      - 2121:80
+    command: ["python", "/app/partner_finder/manage.py", "runserver", "0:80"]
